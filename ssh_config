@@ -1,0 +1,15 @@
+Host bastion
+    User appuser
+    HostName 35.240.95.152
+    IdentityFile /root/appuser
+Host someinternalhos*
+    User appuser
+    HostName 10.132.0.3
+    IdentityFile /root/appuser
+
+# С выходом OpenSSH 7.3
+Host someinternalhost
+    ProxyJump bastion
+# на более старых версиях
+Host someinternalhost_old
+    ProxyCommand ssh -q -W %h:%p bastion 
