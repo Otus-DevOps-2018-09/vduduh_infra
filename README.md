@@ -42,3 +42,34 @@ vduduh Infra repository
 bastion_IP = 35.240.95.152
 
 someinternalhost_IP = 10.132.0.3
+
+### Деплой тестового приложения (ДЗ №4 к занятию №6)
+
+#### Что сделано:
+* перенёс файлы старых ДЗ в папки **VPN** и **SSH**
+* установил утилиту gcloud и выбрал проект и регион
+* создал инстанс **reddit-app**
+* установил на целевую ВМ ruby, mongo (с автозапуском)
+* скопировал код приложения в ```/home/appuser/reddit``` и установил зависимости
+* запустил приложение и дабавил порт в фаервол через веб-интерфейс
+* создал скрипты по установке ПО и деплоя приложения
+* для запуска **startup** скрипта через **gcloud** выполнить:
+    ```powershell
+    gcloud compute instances create reddit-app --boot-disk-size=10GB --image-family ubuntu-1604-lts --image-project=ubuntu-os-cloud --machine-type=g1-small --tags puma-server --restart-on-failure --metadata-from-file startup-script=./reddit-startup.sh
+
+    ```
+* создание правила в межсетевом экране:
+    ```powershell
+    gcloud compute firewall-rules create "default-puma-server" --allow tcp:9292 --source-ranges="0.0.0.0/0" --description="ДЗ №4 к занятию №6" --target-tags=puma-server --priority=1000
+
+    ```
+* установление флага исполняемого файла:
+    ```powershell
+    git update-index --chmod=+x ./deploy.sh
+    
+    ```
+
+#### Данные для подключения:
+testapp_IP = 35.204.26.199
+
+testapp_port = 9292
