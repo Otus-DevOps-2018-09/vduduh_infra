@@ -69,7 +69,13 @@ someinternalhost_IP = 10.132.0.3
     
     ```
 
-#### Данные для подключения:
-testapp_IP = 35.204.26.199
-
-testapp_port = 9292
+### Сборка образов VM при помощи Packer (ДЗ №5 к занятию №7)
+------
+#### Что сделано: 
+* перенёс файлы старых ДЗ в папкe `config-scripts` командой `git mv ...`
+* установил `packer` командой `choco install packer`
+* создал конфиг `ubuntu16.json`
+* создал скрипты и удалил из них `sudo`
+* развернул приложение 
+* создал `variables.json`
+* для запуска команда `packer.exe build -var-file variables.json ubuntu16.json`
