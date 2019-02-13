@@ -79,3 +79,4 @@ someinternalhost_IP = 10.132.0.3
 * развернул приложение 
 * создал `variables.json`
 * для запуска команда `packer.exe build -var-file variables.json ubuntu16.json`
+* удалил SSH-ключи из метаданных
