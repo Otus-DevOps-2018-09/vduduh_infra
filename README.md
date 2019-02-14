@@ -79,3 +79,18 @@ someinternalhost_IP = 10.132.0.3
 * развернул приложение 
 * создал `variables.json`
 * для запуска команда `packer.exe build -var-file variables.json ubuntu16.json`
+
+
+### Практика IaC с использованием Terraform (ДЗ №6 к занятию №8)
+------
+#### Что сделано: 
+* удалил SSH-ключи из метаданных
+* установил терраформ в `C:\ProgramData\Hashicorp`
+* добавил в игнор временные файлы терраформа
+* добавил описание инстанса
+* запуск для применения изменений `terraform apply -auto-approve=true`
+* узнал команды `terraform refresh` и `terraform refresh`
+* удаление ресурса - `terraform taint google_compute_instance.app`
+* определил input переменные
+* удалил созданные ресурсы
+
